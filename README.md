@@ -4,7 +4,7 @@ Simple Crawler For Amazon Stock Information Gathering.
 If you like my project, "Star" in the corresponding project right corner, please. If you want to buy me a cup of coffee, use the Bitcoin QR Code right below.
 
 <div align="center">
-![alt text](btcdonatewallet.jpg "BTC-Wallet")
+<img src="btcdonatewallet.jpg" />
 </div>
 
 
