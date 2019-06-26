@@ -26,9 +26,12 @@ enclosed within an <item> tag, as shown in the following:
 </item>
 ```
 
-### Create Virtualenvironment
+### Create Virtualenvironment and Install Dependencies
 
 ```bash
+virtualenv -p python3 myenv
+cd myenv
+git clone https://github.com/localhostport80/amazoncrawler
 source venv/bin/activate
 pip install -r requirements.txt
 ```
