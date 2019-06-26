@@ -5,7 +5,7 @@ If you like my project, "Star" in the corresponding project right corner, please
 
 <div align="center">
 ![alt text](btcdonatewallet.jpg "BTC-Wallet")
-<div/>
+</div>
 
 
 
