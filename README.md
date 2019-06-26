@@ -5,11 +5,8 @@ If you like my project, "Star" in the corresponding project right corner, please
 
 <div align="center">
 <img src="btcdonatewallet.jpg" />
-</div>
-
-
-
 Please send BTC to the Bitcoin address 14pmyZZrFfCCEK49FC7jKWj1WGzhUP4rsQ.
+</div>
 
 ## Installation
 
