@@ -23,5 +23,17 @@ enclosed within an <item> tag, as shown in the following:
 ```bash
 source venv/bin/activate
 pip install -r requirements.txt
-python amazoncrawler.py && python plotter.py
+```
+
+
+### Usage
+
+There are two main files in this project, namely *amazoncrawler.py* and
+*plotter.py*. First run amazoncrawler, which retrieves the current
+stocks of all items in the config. Second run *plotter.py* to plot all
+resulting csv files.
+
+```bash
+python amazoncrawler.py
+python plotter.py
 ```
