@@ -1,4 +1,4 @@
-# amazoncrawler
+# The Simple Amazon Stock Crawler 
 Simple Crawler For Amazon Stock Information Gathering.
 
 If you like my project, "Star" in the corresponding project right corner, please. If you want to buy me a cup of coffee, use the Bitcoin QR Code right below.
@@ -7,7 +7,7 @@ If you like my project, "Star" in the corresponding project right corner, please
   <img src="btcdonatewallet.jpg" />
 </div>
 
-Please send BTC to the Bitcoin address 14pmyZZrFfCCEK49FC7jKWj1WGzhUP4rsQ.
+BTC Address: 14pmyZZrFfCCEK49FC7jKWj1WGzhUP4rsQ
 
 ## Installation
 
