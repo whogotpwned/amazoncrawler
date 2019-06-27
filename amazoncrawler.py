@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from cmd import Cmd
 from datetime import datetime
 from os.path import abspath, dirname, join
 from time import sleep
@@ -198,11 +199,37 @@ def retrieve_stock_of_all_items_in_config():
     return EXIT_SUCCESS
 
 
-def main():
-    replace_ampersands_in_file("config.xml")
-    parse_config_file()
-    retrieve_stock_of_all_items_in_config()
+class MyPrompt(Cmd):
+    @staticmethod
+    def do_retrieve_stock_of_all_items_in_config(args):
+        """Retrieves the stock"""
+        try:
+            retrieve_stock_of_all_items_in_config()
+        except Exception as e:
+            print("Command 'retrieve_stock_of_all_items_in_config failed': {}".format(e))
+            raise SystemExit
+
+    @staticmethod
+    def do_show_plots(args):
+        """
+        Plots all csv files.
+        :return:
+        """
+        from tools.plotter import Plotter
+        p = Plotter()
+        p.plot_and_show_all_csv_files(target_dir=".")
+
+    @staticmethod
+    def do_quit(args):
+        """Quits the program."""
+        print("Quitting.")
+        raise SystemExit
 
 
 if __name__ == '__main__':
-    main()
+    replace_ampersands_in_file("config.xml")
+    parse_config_file()
+
+    prompt = MyPrompt()
+    prompt.prompt = '> '
+    prompt.cmdloop('Starting prompt...')

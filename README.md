@@ -39,12 +39,17 @@ pip install -r requirements.txt
 
 ### Usage
 
-There are two main files in this project, namely *amazoncrawler.py* and
-*plotter.py*. First run amazoncrawler, which retrieves the current
-stocks of all items in the config. Second run *plotter.py* to plot all
-resulting csv files.
+There is one main file in this project, namely *amazoncrawler.py*. Feel free to type "?" or "help" inside the CLI that opens when running it. You will find commands for retrieving the stock information as well as commands for plotting csv files.
 
 ```bash
 python amazoncrawler.py
-python plotter.py
+```
+
+```python
+Starting prompt...
+> ?
+
+Documented commands (type help <topic>):
+========================================
+help  quit  retrieve_stock_of_all_items_in_config  show_plots
 ```
