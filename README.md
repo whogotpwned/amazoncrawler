@@ -45,7 +45,7 @@ There is one main file in this project, namely *amazoncrawler.py*. Feel free to 
 python amazoncrawler.py
 ```
 
-```python
+```bash
 Starting prompt...
 > ?
 
