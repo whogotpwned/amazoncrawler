@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import ast
 from cmd import Cmd
 from datetime import datetime
 from os.path import abspath, dirname, join
 from time import sleep
 
 import xmltodict
+from progressbar import progressbar
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
@@ -15,9 +18,9 @@ from assets.uris import HOME_PAGE, CART_PAGE
 
 EXIT_SUCCESS, EXIT_FAILURE = 0, 1
 
+OPTIONS = Options()
 PROJECT_ROOT = abspath(dirname(__file__))
 DRIVER_BIN = join(PROJECT_ROOT, "bin/chromedriver")
-BROWSER = Chrome(executable_path=DRIVER_BIN)
 
 
 def add_to_cart(driver):
@@ -173,20 +176,33 @@ def parse_config_file():
     return conf
 
 
-def retrieve_stock_of_all_items_in_config():
+def parse_selenium_chrome_options_from_config_file():
+    """
+    Parses selenium specific options.
+    :return:
+    """
+    selenium_options = conf["data"]["selenium-options"]
+
+    if ast.literal_eval(selenium_options["headless-mode"]):
+        OPTIONS.add_argument("--headless")
+
+    return EXIT_SUCCESS
+
+
+def retrieve_stock_of_all_items_in_config(driver):
     """
     Utilizes the 999 trick to retrieve the current stock of all items specified in config.xml.
     :return:
     """
-    for obj in conf["data"]["item"]:
+    for obj in progressbar(conf["data"]["item"]):
         try:
             item_list = list(obj.items())
 
             name, link = item_list[0][1], item_list[1][1]
 
-            stock = get_current_stock_of_item(BROWSER, link)
-            remove_last_item_from_cart(BROWSER)
-            go_to_home(BROWSER)
+            stock = get_current_stock_of_item(driver, link)
+            remove_last_item_from_cart(driver)
+            go_to_home(driver)
 
             create_log_file_if_not_exists(name + ".csv")
 
@@ -204,7 +220,7 @@ class MyPrompt(Cmd):
     def do_retrieve_stock_of_all_items_in_config(args):
         """Retrieves the stock"""
         try:
-            retrieve_stock_of_all_items_in_config()
+            retrieve_stock_of_all_items_in_config(BROWSER)
         except Exception as e:
             print("Command 'retrieve_stock_of_all_items_in_config failed': {}".format(e))
             raise SystemExit
@@ -220,6 +236,12 @@ class MyPrompt(Cmd):
         p.plot_and_show_all_csv_files(target_dir=".")
 
     @staticmethod
+    def do_exit():
+        """Quits the program."""
+        print("Quitting.")
+        raise SystemExit
+
+    @staticmethod
     def do_quit(args):
         """Quits the program."""
         print("Quitting.")
@@ -229,6 +251,10 @@ class MyPrompt(Cmd):
 if __name__ == '__main__':
     replace_ampersands_in_file("config.xml")
     parse_config_file()
+    parse_selenium_chrome_options_from_config_file()
+
+    global BROWSER
+    BROWSER = Chrome(executable_path=DRIVER_BIN, chrome_options=OPTIONS)
 
     prompt = MyPrompt()
     prompt.prompt = '> '
