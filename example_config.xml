@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <selenium-options>
+        <headless-mode>
+            True
+        </headless-mode>
+    </selenium-options>
+    <item name="flamingo-ball">
+        <path>
+            https://www.amazon.de/ballonfritz%C2%AE-Flamingo-Ballon-Riesenballon-Geburtstagsgeschenk/dp/B07D24S144/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91
+            keywords=flamingo+ballon qid=1561379051 s=gateway sr=8-5
+        </path>
+    </item>
+</data>
+
+
+
+
+
+

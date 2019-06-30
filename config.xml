@@ -2,7 +2,7 @@
 <data>
     <selenium-options>
         <headless-mode>
-            False
+            True
         </headless-mode>
     </selenium-options>
     <item name="flamingo-ball">
@@ -79,6 +79,25 @@
             https://www.amazon.de/dp/B07Q83WGL3/ref=cm_sw_r_other_apa_i_M9jfDb94AC7QP
         </path>
     </item>
+    <item name="wimpern-meltem-599">
+        <path>
+            https://www.amazon.de/dp/B07Q83WGL3/ref=cm_sw_r_other_apa_i_M9jfDb94AC7QP
+        </path>
+    </item>
+    <item name="amalchid-speichen">
+	    <path>
+			https://www.amazon.de/dp/B07C7XDF1M/ref=cm_sw_r_other_apa_i_Nr.fDbTMGJQHW
+		</path>
+    </item>
+    <item name="wimpern-meltem-599">
+	    <path>
+			https://www.amazon.de/dp/B01B1GV0PA/ref=cm_sw_r_other_apa_i_ps.fDb58RBKYE
+	    </path>
+    </item>
 </data>
+
+
+
+
 
 
