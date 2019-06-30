@@ -35,6 +35,10 @@ enclosed within an <item> tag, as shown in the following:
 </data>
 ```
 
+If you are going to base your config file on *example_config.xml* do not
+forget to rename it to *config.xml*.
+
+
 ### Create Virtualenvironment and Install Dependencies
 
 ```bash
