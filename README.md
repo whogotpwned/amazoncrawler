@@ -67,5 +67,5 @@ Starting prompt...
 
 Documented commands (type help <topic>):
 ========================================
-help  quit  retrieve_stock_of_all_items_in_config  show_plots
+exit  help  quit  retrieve_stock_of_all_items_in_config  save_plots  show_plots
 ```
