@@ -36,8 +36,11 @@ enclosed within an <item> tag, as shown in the following:
 ```
 
 If you are going to base your config file on *example_config.xml* do not
-forget to rename it to *config.xml*.
-
+forget to rename it to *config.xml*. The given chromedriver in
+*bin/chromedriver* is actually the one for macos. Depending on your
+operating system you might have to replace it by the correct one, see <a
+href="http://chromedriver.chromium.org/downloads">Chromedriver
+Chromium</a>.
 
 ### Create Virtualenvironment and Install Dependencies
 
