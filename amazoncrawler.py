@@ -233,10 +233,20 @@ class MyPrompt(Cmd):
         """
         from tools.plotter import Plotter
         p = Plotter()
-        p.plot_and_show_all_csv_files(target_dir=".")
+        p.plot_and_show_all_plot_files(target_dir=".")
 
     @staticmethod
-    def do_exit():
+    def do_save_plots(args):
+        """
+        Plots and saves csv files.
+        :return:
+        """
+        from tools.plotter import Plotter
+        p = Plotter()
+        p.plot_and_save_all_plot_files(target_dir=".")
+
+    @staticmethod
+    def do_exit(args):
         """Quits the program."""
         print("Quitting.")
         raise SystemExit
