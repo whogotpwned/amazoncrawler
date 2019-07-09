@@ -169,11 +169,11 @@ def parse_config_file():
     Parses the local xml config file.
     :return:
     """
-    global conf
+    global CONF
     with open("config.xml") as fd:
-        conf = xmltodict.parse(fd.read())
+        CONF = xmltodict.parse(fd.read())
 
-    return conf
+    return CONF
 
 
 def parse_selenium_chrome_options_from_config_file():
@@ -181,7 +181,7 @@ def parse_selenium_chrome_options_from_config_file():
     Parses selenium specific options.
     :return:
     """
-    selenium_options = conf["data"]["selenium-options"]
+    selenium_options = CONF["data"]["selenium-options"]
 
     if ast.literal_eval(selenium_options["headless-mode"]):
         OPTIONS.add_argument("--headless")
@@ -194,7 +194,7 @@ def retrieve_stock_of_all_items_in_config(driver):
     Utilizes the 999 trick to retrieve the current stock of all items specified in config.xml.
     :return:
     """
-    for obj in progressbar(conf["data"]["item"]):
+    for obj in progressbar(CONF["data"]["item"]):
         try:
             item_list = list(obj.items())
 
@@ -218,7 +218,10 @@ def retrieve_stock_of_all_items_in_config(driver):
 class MyPrompt(Cmd):
     @staticmethod
     def do_retrieve_stock_of_all_items_in_config(args):
-        """Retrieves the stock"""
+        """
+        Retrieves the stock.
+        :return:
+        """
         try:
             retrieve_stock_of_all_items_in_config(BROWSER)
         except Exception as e:
@@ -247,24 +250,40 @@ class MyPrompt(Cmd):
 
     @staticmethod
     def do_exit(args):
-        """Quits the program."""
+        """
+        Quits the program.
+        :return:
+        """
         print("Quitting.")
         raise SystemExit
 
     @staticmethod
     def do_quit(args):
-        """Quits the program."""
+        """
+        Quits the program.
+        :return:
+        """
         print("Quitting.")
         raise SystemExit
 
 
-if __name__ == '__main__':
+def bootstrap_config():
+    """
+    Processes the config file.
+    :return:
+    """
     replace_ampersands_in_file("config.xml")
     parse_config_file()
     parse_selenium_chrome_options_from_config_file()
 
+    return EXIT_SUCCESS
+
+
+if __name__ == '__main__':
+    bootstrap_config()
+
     global BROWSER
-    BROWSER = Chrome(executable_path=DRIVER_BIN, chrome_options=OPTIONS)
+    BROWSER = Chrome(executable_path=DRIVER_BIN, options=OPTIONS)
 
     prompt = MyPrompt()
     prompt.prompt = '> '

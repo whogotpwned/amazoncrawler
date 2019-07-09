@@ -1,9 +1,12 @@
+import matplotlib
+
+matplotlib.use("TkAgg")
+from matplotlib import pyplot as plt
+
 from csv import reader
 from glob import glob
 from os import chdir
 from os.path import abspath, dirname
-
-import matplotlib.pyplot as plt
 
 EXIT_SUCCESS, EXIT_FAILURE = 0, 1
 
@@ -45,7 +48,6 @@ class Plotter:
             plt.xticks(rotation=35, fontsize=5)
             plt.ylabel('items')
             plt.title('Plot: {}'.format(str(csv_file)))
-            plt.legend()
             plt.show()
 
         return EXIT_SUCCESS
@@ -72,7 +74,7 @@ class Plotter:
             plt.xticks(rotation=35, fontsize=5)
             plt.ylabel('items')
             plt.title('Plot: {}'.format(str(csv_file)))
-            plt.legend()
+            plt.plot(x, y, label='Supposed Stock of {}'.format(str(csv_file)))
             plt.savefig("Figure-{}.png".format(i))
             i += 1
             plt.clf()
