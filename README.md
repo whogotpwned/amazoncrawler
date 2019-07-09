@@ -74,3 +74,7 @@ exit  help  quit  retrieve_stock_of_all_items_in_config  save_plots  show_plots
 ### Telegram-Bot
 
 There is an additional main file called *amazoncrawler_bot.py* which makes it possible to interact with *amazoncrawler.py* via Telegram. Use BotFather to generate your unique private API token and add your private chat-id to the config file. The bot only grants admission to those users who's ids are listed in the XML.
+
+```bash
+python amazoncrawler_bot.py
+```
