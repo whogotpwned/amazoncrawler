@@ -7,7 +7,7 @@ If you like my project, "Star" in the corresponding project right corner, please
   <img src="btcdonatewallet.jpg" />
 </div>
 
-BTC Address: 14pmyZZrFfCCEK49FC7jKWj1WGzhUP4rsQ
+ETH Address: 0xF3Ed337358e57552317A77dEcCA4Ad48D0D128Db
 
 ## Installation
 
